@@ -143,7 +143,6 @@ graph_t *ReadGraph(params_t *params)
           errexit("There are more edges in the file than the %"PRIDX" specified, we found %d and expected%d.\n", 
                   graph->nedges/2,k , graph->nedges);
         }
-
       adjncy[k] = edge-1;
       adjwgt[k] = ewgt;
       k++;
