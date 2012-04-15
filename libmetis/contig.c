@@ -342,7 +342,7 @@ void EliminateComponents(ctrl_t *ctrl, graph_t *graph)
   idx_t cid, bestcid, *cwgt, *bestcwgt;
   idx_t ntodo, oldntodo, *todo;
   rkv_t *cand;
-  real_t *tpwgts;
+  //real_t *tpwgts;
   idx_t *vmarker=NULL, *pmarker=NULL, *modind=NULL;  /* volume specific work arrays */
 
   WCOREPUSH;
@@ -358,7 +358,7 @@ void EliminateComponents(ctrl_t *ctrl, graph_t *graph)
   pwgts = graph->pwgts;
 
   nparts = ctrl->nparts;
-  tpwgts = ctrl->tpwgts;
+  //  tpwgts = ctrl->tpwgts;
 
   cptr = iwspacemalloc(ctrl, nvtxs+1);
   cind = iwspacemalloc(ctrl, nvtxs);
@@ -531,12 +531,12 @@ void EliminateComponents(ctrl_t *ctrl, graph_t *graph)
 void MoveGroupContigForCut(ctrl_t *ctrl, graph_t *graph, idx_t to, idx_t gid, 
          idx_t *ptr, idx_t *ind)
 {
-  idx_t i, ii, iii, j, jj, k, l, nvtxs, nbnd, from, me;
+  idx_t i, ii, iii, j, jj, k, l,  nbnd, from, me;
   idx_t *xadj, *adjncy, *adjwgt, *where, *bndptr, *bndind;
   ckrinfo_t *myrinfo;
   cnbr_t *mynbrs;
 
-  nvtxs  = graph->nvtxs;
+  //  nvtxs  = graph->nvtxs;
   xadj   = graph->xadj;
   adjncy = graph->adjncy;
   adjwgt = graph->adjwgt;
@@ -602,12 +602,12 @@ void MoveGroupContigForVol(ctrl_t *ctrl, graph_t *graph, idx_t to, idx_t gid,
          idx_t *ptr, idx_t *ind, idx_t *vmarker, idx_t *pmarker, 
          idx_t *modind)
 {
-  idx_t i, ii, iii, j, jj, k, l, nvtxs, from, me, other, xgain;
+  idx_t i, ii, iii, j, jj, k, l,  from, me, other, xgain;
   idx_t *xadj, *vsize, *adjncy, *where;
   vkrinfo_t *myrinfo, *orinfo;
   vnbr_t *mynbrs, *onbrs;
 
-  nvtxs  = graph->nvtxs;
+  //  nvtxs  = graph->nvtxs;
   xadj   = graph->xadj;
   vsize  = graph->vsize;
   adjncy = graph->adjncy;

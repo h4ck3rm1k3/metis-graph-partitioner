@@ -121,14 +121,14 @@ idx_t ComputeMaxCut(graph_t *graph, idx_t nparts, idx_t *where)
 idx_t CheckBnd(graph_t *graph) 
 {
   idx_t i, j, nvtxs, nbnd;
-  idx_t *xadj, *adjncy, *where, *bndptr, *bndind;
+  idx_t *xadj, *adjncy, *where;
 
   nvtxs = graph->nvtxs;
   xadj = graph->xadj;
   adjncy = graph->adjncy;
   where = graph->where;
-  bndptr = graph->bndptr;
-  bndind = graph->bndind;
+  //  bndptr = graph->bndptr;
+  //  bndind = graph->bndind;
 
   for (nbnd=0, i=0; i<nvtxs; i++) {
     if (xadj[i+1]-xadj[i] == 0)
@@ -158,14 +158,14 @@ idx_t CheckBnd(graph_t *graph)
 idx_t CheckBnd2(graph_t *graph) 
 {
   idx_t i, j, nvtxs, nbnd, id, ed;
-  idx_t *xadj, *adjncy, *where, *bndptr, *bndind;
+  idx_t *xadj, *adjncy, *where;
 
   nvtxs  = graph->nvtxs;
   xadj   = graph->xadj;
   adjncy = graph->adjncy;
   where  = graph->where;
-  bndptr = graph->bndptr;
-  bndind = graph->bndind;
+  //  bndptr = graph->bndptr;
+  //  bndind = graph->bndind;
 
   for (nbnd=0, i=0; i<nvtxs; i++) {
     id = ed = 0;
@@ -195,14 +195,14 @@ idx_t CheckBnd2(graph_t *graph)
 idx_t CheckNodeBnd(graph_t *graph, idx_t onbnd) 
 {
   idx_t i, j, nvtxs, nbnd;
-  idx_t *xadj, *adjncy, *where, *bndptr, *bndind;
+  idx_t  *where;
 
   nvtxs = graph->nvtxs;
-  xadj = graph->xadj;
-  adjncy = graph->adjncy;
+  //  xadj = graph->xadj;
+  //  adjncy = graph->adjncy;
   where = graph->where;
-  bndptr = graph->bndptr;
-  bndind = graph->bndind;
+  //  bndptr = graph->bndptr;
+  //  bndind = graph->bndind;
 
   for (nbnd=0, i=0; i<nvtxs; i++) {
     if (where[i] == 2) 
@@ -232,9 +232,8 @@ idx_t CheckNodeBnd(graph_t *graph, idx_t onbnd)
 idx_t CheckRInfo(ctrl_t *ctrl, ckrinfo_t *rinfo)
 {
   idx_t i, j;
-  cnbr_t *nbrs;
-
-  nbrs = ctrl->cnbrpool + rinfo->inbr;
+  //  cnbr_t *nbrs;
+  //  nbrs = ctrl->cnbrpool + rinfo->inbr;
 
   for (i=0; i<rinfo->nnbrs; i++) {
     for (j=i+1; j<rinfo->nnbrs; j++)
@@ -255,14 +254,14 @@ idx_t CheckRInfo(ctrl_t *ctrl, ckrinfo_t *rinfo)
 idx_t CheckNodePartitionParams(graph_t *graph)
 {
   idx_t i, j, k, l, nvtxs, me, other;
-  idx_t *xadj, *adjncy, *adjwgt, *vwgt, *where;
+  idx_t *xadj, *adjncy, *vwgt, *where;
   idx_t edegrees[2], pwgts[3];
 
   nvtxs  = graph->nvtxs;
   xadj   = graph->xadj;
   vwgt   = graph->vwgt;
   adjncy = graph->adjncy;
-  adjwgt = graph->adjwgt;
+  //  adjwgt = graph->adjwgt;
   where  = graph->where;
 
   /*------------------------------------------------------------
@@ -308,18 +307,18 @@ idx_t CheckNodePartitionParams(graph_t *graph)
 /*************************************************************************/
 idx_t IsSeparable(graph_t *graph)
 {
-  idx_t i, j, nvtxs, other;
-  idx_t *xadj, *adjncy, *where;
+  idx_t i, j, nvtxs;
+  idx_t *xadj,  *where;
 
   nvtxs = graph->nvtxs;
   xadj = graph->xadj;
-  adjncy = graph->adjncy;
+  //  adjncy = graph->adjncy;
   where = graph->where;
 
   for (i=0; i<nvtxs; i++) {
     if (where[i] == 2)
       continue;
-    other = (where[i]+1)%2;
+    //    other = (where[i]+1)%2;
     for (j=xadj[i]; j<xadj[i+1]; j++) {
       ASSERTP(where[adjncy[j]] != other, 
           ("%"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX" %"PRIDX"\n", 

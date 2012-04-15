@@ -562,11 +562,12 @@ void ComputeKWayBoundary(ctrl_t *ctrl, graph_t *graph, idx_t bndtype)
 void ComputeKWayVolGains(ctrl_t *ctrl, graph_t *graph)
 {
   idx_t i, ii, j, k, l, nvtxs, nparts, me, other, pid; 
-  idx_t *xadj, *vsize, *adjncy, *adjwgt, *where, 
+  idx_t *xadj, *vsize, *adjncy, *where, 
         *bndind, *bndptr, *ophtable;
+
   vkrinfo_t *myrinfo, *orinfo;
   vnbr_t *mynbrs, *onbrs;
-
+  
   WCOREPUSH;
 
   nparts = ctrl->nparts;
@@ -575,7 +576,7 @@ void ComputeKWayVolGains(ctrl_t *ctrl, graph_t *graph)
   xadj   = graph->xadj;
   vsize  = graph->vsize;
   adjncy = graph->adjncy;
-  adjwgt = graph->adjwgt;
+
 
   where  = graph->where;
   bndind = graph->bndind;

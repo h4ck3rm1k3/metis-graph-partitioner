@@ -862,23 +862,23 @@ gk_csr_t *gk_csr_TopKPlusFilter(gk_csr_t *mat, int what, int topk, float keepval
 gk_csr_t *gk_csr_ZScoreFilter(gk_csr_t *mat, int what, float zscore)
 {
   ssize_t i, j, nnz;
-  int nrows, ncols;
-  ssize_t *rowptr, *colptr, *nrowptr;
-  int *rowind, *colind, *nrowind;
-  float *rowval, *colval, *nrowval, avgwgt;
+  int nrows;
+  ssize_t *rowptr,  *nrowptr;
+  int *rowind,  *nrowind;
+  float *rowval,  *nrowval, avgwgt;
   gk_csr_t *nmat;
 
   nmat = gk_csr_Create();
   
   nrows = nmat->nrows = mat->nrows;
-  ncols = nmat->ncols = mat->ncols;
+  //  ncols = nmat->ncols = mat->ncols;
 
   rowptr = mat->rowptr;
   rowind = mat->rowind;
   rowval = mat->rowval;
-  colptr = mat->colptr;
-  colind = mat->colind;
-  colval = mat->colval;
+  //  colptr = mat->colptr;
+  //colind = mat->colind;
+  //colval = mat->colval;
 
   nrowptr = nmat->rowptr = gk_zmalloc(nrows+1, "gk_csr_ZScoreFilter: nrowptr");
   nrowind = nmat->rowind = gk_imalloc(rowptr[nrows], "gk_csr_ZScoreFilter: nrowind");

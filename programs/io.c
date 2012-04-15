@@ -88,7 +88,7 @@ graph_t *ReadGraph(params_t *params)
   for (xadj[0]=0, k=0, i=0; i<graph->nvtxs; i++) {
     do {
       if (gk_getline(&line, &lnlen, fpin) == -1) 
-        errexit("Premature end of input file while reading vertex %"PRIDX".\n", i+1);
+        errexit("Premature end of input file while reading vertex %"PRIDX" from a total of %d vertexes.\n", i+1, graph->nvtxs);
     } while (line[0] == '%');
 
     curstr = line;
@@ -138,9 +138,11 @@ graph_t *ReadGraph(params_t *params)
         curstr = newstr;
       }
 
-      if (k == graph->nedges)
-        errexit("There are more edges in the file than the %"PRIDX" specified.\n", 
-            graph->nedges/2);
+      if (k > graph->nedges)
+        {
+          errexit("There are more edges in the file than the %"PRIDX" specified, we found %d and expected%d.\n", 
+                  graph->nedges/2,k , graph->nedges);
+        }
 
       adjncy[k] = edge-1;
       adjwgt[k] = ewgt;

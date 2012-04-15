@@ -17,9 +17,9 @@ float ComputeAccuracy(int n, gk_fkv_t *list)
 {
   int i, P, N, TP, FN = 0;
   float bAccuracy = 0.0;
-  float prev, acc;
+  float acc;
   
-  prev = list[0].key -1;
+  //  prev = list[0].key -1;
   
   for (P=0, i=0;i<n;i++)
     P += (list[i].val == 1? 1 : 0);

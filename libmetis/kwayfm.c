@@ -66,7 +66,7 @@ void Greedy_KWayCutOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
   idx_t *xadj, *adjncy, *adjwgt;
   idx_t *where, *pwgts, *perm, *bndptr, *bndind, *minwgt, *maxwgt, *itpwgts;
   idx_t nmoved, nupd, *vstatus, *updptr, *updind;
-  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL, **adwgts=NULL;
+  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL; //, **adwgts=NULL;
   idx_t *bfslvl=NULL, *bfsind=NULL, *bfsmrk=NULL;
   idx_t bndtype = (omode == OMODE_REFINE ? BNDTYPE_REFINE : BNDTYPE_BALANCE);
 
@@ -118,7 +118,7 @@ void Greedy_KWayCutOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
 
     nads    = ctrl->nads;
     adids   = ctrl->adids;
-    adwgts  = ctrl->adwgts;
+    //    adwgts  = ctrl->adwgts;
     doms    = iset(nparts, 0, ctrl->pvec1);
   }
 
@@ -374,9 +374,10 @@ void Greedy_KWayVolOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
   idx_t i, ii, iii, j, k, l, pass, nvtxs, nparts, gain; 
   idx_t from, me, to, oldcut, vwgt;
   idx_t *xadj, *adjncy;
-  idx_t *where, *pwgts, *perm, *bndptr, *bndind, *minwgt, *maxwgt, *itpwgts;
+  idx_t *where, *pwgts, *perm, *bndind, *minwgt, *maxwgt, *itpwgts;
   idx_t nmoved, nupd, *vstatus, *updptr, *updind;
-  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL, **adwgts=NULL;
+  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL;
+  //  idx_t **adwgts=NULL;
   idx_t *bfslvl=NULL, *bfsind=NULL, *bfsmrk=NULL;
   idx_t bndtype = (omode == OMODE_REFINE ? BNDTYPE_REFINE : BNDTYPE_BALANCE);
 
@@ -393,7 +394,7 @@ void Greedy_KWayVolOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
   nvtxs  = graph->nvtxs;
   xadj   = graph->xadj;
   adjncy = graph->adjncy;
-  bndptr = graph->bndptr;
+  //  bndptr = graph->bndptr;
   bndind = graph->bndind;
   where  = graph->where;
   pwgts  = graph->pwgts;
@@ -425,7 +426,7 @@ void Greedy_KWayVolOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
 
     nads    = ctrl->nads;
     adids   = ctrl->adids;
-    adwgts  = ctrl->adwgts;
+    //    adwgts  = ctrl->adwgts;
     doms    = iset(nparts, 0, ctrl->pvec1);
   }
 
@@ -690,7 +691,7 @@ void Greedy_McKWayCutOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
   idx_t *xadj, *vwgt, *adjncy, *adjwgt;
   idx_t *where, *pwgts, *perm, *bndptr, *bndind, *minwgt, *maxwgt;
   idx_t nmoved, nupd, *vstatus, *updptr, *updind;
-  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL, **adwgts=NULL;
+  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL; //, **adwgts=NULL;
   idx_t *bfslvl=NULL, *bfsind=NULL, *bfsmrk=NULL;
   idx_t bndtype = (omode == OMODE_REFINE ? BNDTYPE_REFINE : BNDTYPE_BALANCE);
   real_t *ubfactors, *pijbm;
@@ -765,7 +766,7 @@ void Greedy_McKWayCutOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
 
     nads    = ctrl->nads;
     adids   = ctrl->adids;
-    adwgts  = ctrl->adwgts;
+    //adwgts  = ctrl->adwgts;
     doms    = iset(nparts, 0, ctrl->pvec1);
   }
 
@@ -1030,9 +1031,9 @@ void Greedy_McKWayVolOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
   idx_t i, ii, iii, j, k, l, pass, nvtxs, ncon, nparts, gain; 
   idx_t from, me, to, cto, oldcut;
   idx_t *xadj, *vwgt, *adjncy;
-  idx_t *where, *pwgts, *perm, *bndptr, *bndind, *minwgt, *maxwgt;
+  idx_t *where, *pwgts, *perm, *bndind, *minwgt, *maxwgt;
   idx_t nmoved, nupd, *vstatus, *updptr, *updind;
-  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL, **adwgts=NULL;
+  idx_t maxndoms, *safetos=NULL, *nads=NULL, *doms=NULL, **adids=NULL; //, **adwgts=NULL;
   idx_t *bfslvl=NULL, *bfsind=NULL, *bfsmrk=NULL;
   idx_t bndtype = (omode == OMODE_REFINE ? BNDTYPE_REFINE : BNDTYPE_BALANCE);
   real_t *ubfactors, *pijbm;
@@ -1053,7 +1054,7 @@ void Greedy_McKWayVolOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
   xadj   = graph->xadj;
   vwgt   = graph->vwgt;
   adjncy = graph->adjncy;
-  bndptr = graph->bndptr;
+  //  bndptr = graph->bndptr;
   bndind = graph->bndind;
   where  = graph->where;
   pwgts  = graph->pwgts;
@@ -1104,7 +1105,7 @@ void Greedy_McKWayVolOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
 
     nads    = ctrl->nads;
     adids   = ctrl->adids;
-    adwgts  = ctrl->adwgts;
+    //    adwgts  = ctrl->adwgts;
     doms    = iset(nparts, 0, ctrl->pvec1);
   }
 

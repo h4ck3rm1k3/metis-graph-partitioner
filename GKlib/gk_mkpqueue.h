@@ -381,9 +381,9 @@ int FPRFX ## CheckHeap(PQT *queue)\
   gk_idx_t i, j;\
   size_t nnodes;\
   gk_idx_t *locator;\
-  KVT *heap;\
+  /*  KVT *heap;  */                            \
 \
-  heap    = queue->heap;\
+  /*  heap    = queue->heap;                  */        \
   locator = queue->locator;\
   nnodes  = queue->nnodes;\
 \

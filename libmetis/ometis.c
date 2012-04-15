@@ -183,11 +183,11 @@ SIGTHROW:
 void MlevelNestedDissection(ctrl_t *ctrl, graph_t *graph, idx_t *order, 
          idx_t lastvtx)
 {
-  idx_t i, j, nvtxs, nbnd;
+  idx_t i, j,  nbnd;
   idx_t *label, *bndind;
   graph_t *lgraph, *rgraph;
 
-  nvtxs = graph->nvtxs;
+  //  nvtxs = graph->nvtxs;
 
   MlevelNodeBisectionMultiple(ctrl, graph);
 
@@ -423,7 +423,7 @@ void SplitGraphOrder(ctrl_t *ctrl, graph_t *graph, graph_t **r_lgraph,
          graph_t **r_rgraph)
 {
   idx_t i, ii, j, k, l, istart, iend, mypart, nvtxs, snvtxs[3], snedges[3];
-  idx_t *xadj, *vwgt, *adjncy, *adjwgt, *label, *where, *bndptr, *bndind;
+  idx_t *xadj, *vwgt, *adjncy,  *label, *where, *bndptr, *bndind;
   idx_t *sxadj[2], *svwgt[2], *sadjncy[2], *sadjwgt[2], *slabel[2];
   idx_t *rename;
   idx_t *auxadjncy;
@@ -437,7 +437,7 @@ void SplitGraphOrder(ctrl_t *ctrl, graph_t *graph, graph_t **r_lgraph,
   xadj    = graph->xadj;
   vwgt    = graph->vwgt;
   adjncy  = graph->adjncy;
-  adjwgt  = graph->adjwgt;
+  //  adjwgt  = graph->adjwgt;
   label   = graph->label;
   where   = graph->where;
   bndptr  = graph->bndptr;
@@ -553,7 +553,7 @@ graph_t **SplitGraphOrderCC(ctrl_t *ctrl, graph_t *graph, idx_t ncmps,
               idx_t *cptr, idx_t *cind)
 {
   idx_t i, ii, iii, j, k, l, istart, iend, mypart, nvtxs, snvtxs, snedges;
-  idx_t *xadj, *vwgt, *adjncy, *adjwgt, *label, *where, *bndptr, *bndind;
+  idx_t *xadj, *vwgt, *adjncy, *label, *where, *bndptr, *bndind;
   idx_t *sxadj, *svwgt, *sadjncy, *sadjwgt, *slabel;
   idx_t *rename;
   idx_t *auxadjncy;
@@ -567,7 +567,7 @@ graph_t **SplitGraphOrderCC(ctrl_t *ctrl, graph_t *graph, idx_t ncmps,
   xadj    = graph->xadj;
   vwgt    = graph->vwgt;
   adjncy  = graph->adjncy;
-  adjwgt  = graph->adjwgt;
+  //  adjwgt  = graph->adjwgt;
   label   = graph->label;
   where   = graph->where;
   bndptr  = graph->bndptr;
