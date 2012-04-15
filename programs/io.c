@@ -140,7 +140,7 @@ graph_t *ReadGraph(params_t *params)
 
       if (k > graph->nedges)
         {
-          errexit("There are more edges in the file than the %"PRIDX" specified, we found %d and expected%d.\n", 
+          errexit("There are more edges in the file than the %"PRIDX" specified, we found the raw count of :%d and expected :%d.\n", 
                   graph->nedges/2,k , graph->nedges);
         }
       adjncy[k] = edge-1;
